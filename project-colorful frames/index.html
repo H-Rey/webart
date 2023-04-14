@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Frames</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .frame {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+  animation: color-animation 2s ease-in-out infinite alternate;
+}
+
+
+.blue {
+  background: linear-gradient(to bottom, #ff0000, #0000ff);
+  animation: animateGradient 2s ease-in-out infinite alternate;
+}
+
+.yellow {
+  background: linear-gradient(to bottom, #ffff00, #ff00ff);
+  animation: animateGradient 2s ease-in-out infinite alternate;
+}
+
+.red {
+  background: linear-gradient(to bottom, #ff0000, #00ffff);
+  animation: animateGradient 2s ease-in-out infinite alternate;
+}
+
+.brown {
+  background: linear-gradient(to bottom, #a52a2a, #654321);
+  animation: animateGradient 2s ease-in-out infinite alternate;
+}
+
+@keyframes animateGradient {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+</style>
+<script>
+
+const frames = document.querySelectorAll('frame');
+
+frames.forEach(frame => {
+  frame.addEventListener('click', () => {
+    const color = frame.classList[1];
+    window.location.href = `index.html?color=${color}`;
+  });
+});
+</script>
+
+  </head>
+  <body>
+    <div class="frame blue" onclick="window.location.href='newpage.html?color=blue'"></div>
+	<div class="frame yellow" onclick="window.location.href='newpage.html?color=yellow'"></div>
+	<div class="frame red" onclick="window.location.href='newpage.html?color=red'"></div>
+	<div class="frame brown" onclick="window.location.href='newpage.html?color=brown'"></div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
